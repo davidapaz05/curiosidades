@@ -97,6 +97,9 @@ Back-end
 
 ☁️ Upload e armazenamento de imagens.
 
+
+https://imgur.com/a/XlznwWY
+
 📦 Gerenciamento de dados das curiosidades (CRUD completo).
 
 ⚙️ Configuração flexível via application.properties ou .env.
