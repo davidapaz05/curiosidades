@@ -212,6 +212,14 @@ Distribuído sob licença MIT. Veja mais em LICENSE.
 Contato
 Mauricio - mauriciosfm1@gmail.com
 
+
+
+
+<img width="308" alt="tela1" src="https://github.com/user-attachments/assets/45a65a92-5881-4ffe-ad82-ca235207d6f9" />
+
+
+
+
 Davi da paz – davipaz125@gmail.com
 
 Yasmin - yasmenezees138@gmail.com
