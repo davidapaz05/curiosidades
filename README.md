@@ -1,149 +1,165 @@
-Documentação da API - Curiosidades 
+# 📚 Curiosities API
 
-Visão Geral 
+A **Curiosities API** é uma aplicação REST desenvolvida com **Spring Boot** e **MongoDB**, que permite o gerenciamento de curiosidades organizadas por categorias. Ideal para fins educacionais, projetos de aprendizado ou para integrar a sistemas que exibem fatos e curiosidades.
 
-A API de Curiosidades permite que os usuários gerenciem matérias e suas respectivas curiosidades. A API é construída com Spring Boot e utiliza MongoDB como banco de dados. 
+---
 
-Base URL 
+## 🚀 Funcionalidades
 
-http://localhost:8080/materias 
-  
+- 🔍 Buscar todas as curiosidades
+- 📂 Filtrar curiosidades por categoria
+- ➕ Adicionar novas curiosidades
+- ✏️ Atualizar curiosidades existentes
+- ❌ Deletar curiosidades
+- 🧠 Estrutura de dados organizada por categoria
 
-Endpoints 
+---
 
-1. Obter todas as matérias 
+## 🛠️ Tecnologias Utilizadas
 
-Método: GET 
+### Backend
 
-Endpoint: /materias 
+- **Java 17**
+- **Spring Boot 3.4.5**
+- **MongoDB**
+- **Spring Data MongoDB**
+- **Lombok**
+- **Docker Compose** (opcional)
+- **JUnit 5** para testes
 
-Descrição: Retorna uma lista de todas as matérias disponíveis. 
+---
 
-Resposta: 
+## 🧩 Estrutura do Projeto
 
-Código 200 (OK): Retorna um array de objetos Materia. 
+src/
+├── controller/
+│ └── CuriosidadeController.java
+├── model/
+│ ├── Curiosidade.java
+│ └── Categoria.java
+├── repository/
+│ └── CuriosidadeRepository.java
+├── CuriositiesApplication.java
+└── test/
+└── CuriositiesApplicationTests.java
 
-Exemplo de Resposta:[ 
-  { 
-    "id": "1", 
-    "nome": "Matemática", 
-    "curiosidades": ["Curiosidade 1", "Curiosidade 2"] 
-  }, 
-  { 
-    "id": "2", 
-    "nome": "História", 
-    "curiosidades": ["Curiosidade 3", "Curiosidade 4"] 
-  } 
-] 
-  
+yaml
+Copiar
+Editar
 
-2. Obter matéria por ID 
+---
 
-Método: GET 
+## 🌐 Endpoints da API
 
-Endpoint: /materias/{id} 
+> Base URL: `http://localhost:8080/curiosidades`
 
-Descrição: Retorna uma matéria específica com base no ID fornecido. 
+### 🔹 GET `/curiosidades`
+Retorna todas as curiosidades cadastradas.
 
-Parâmetros: 
+### 🔹 GET `/curiosidades/categoria/{categoria}`
+Filtra curiosidades por categoria (ex: HISTORIA, CIENCIA, etc).
 
-id (string): O ID da matéria a ser recuperada. 
+### 🔹 POST `/curiosidades`
+Cria uma nova curiosidade.
 
-Resposta: 
+**Exemplo de Corpo:**
+```json
+{
+  "texto": "A água ferve a 100°C ao nível do mar.",
+  "categoria": "CIENCIA"
+}
+🔹 PUT /curiosidades/{id}
+Atualiza o texto e categoria de uma curiosidade.
 
-Código 200 (OK): Retorna um objeto Materia. 
+Exemplo de Corpo:
 
-Código 404 (Not Found): Se a matéria não for encontrada. 
+json
+Copiar
+Editar
+{
+  "texto": "A água pode ferver a temperaturas menores em altitudes elevadas.",
+  "categoria": "CIENCIA"
+}
+🔹 DELETE /curiosidades/{id}
+Remove uma curiosidade pelo ID.
 
-Exemplo de Resposta:{ 
-  "id": "1", 
-  "nome": "Matemática", 
-  "curiosidades": ["Curiosidade 1", "Curiosidade 2"] 
-} 
-  
+🧠 Modelo de Dados
+java
+Copiar
+Editar
+@Document(collection = "curiosidades")
+public class Curiosidade {
+    @Id
+    private String id;
+    private String texto;
+    private Categoria categoria;
+}
+Enum Categoria (Exemplo)
+java
+Copiar
+Editar
+public enum Categoria {
+    HISTORIA,
+    CIENCIA,
+    GEOGRAFIA,
+    TECNOLOGIA
+}
+⚙️ Como Executar Localmente
+Clone o repositório
 
-3. Criar nova matéria 
+bash
+Copiar
+Editar
+git clone https://github.com/seu-usuario/curiosities-api.git
+cd curiosities-api
+Inicie o MongoDB
 
-Método: POST 
+Você pode usar Docker ou ter o MongoDB instalado localmente.
 
-Endpoint: /materias 
+bash
+Copiar
+Editar
+docker run -d -p 27017:27017 --name mongo mongo
+Execute a aplicação
 
-Descrição: Cria uma nova matéria. 
+bash
+Copiar
+Editar
+./mvnw spring-boot:run
+A aplicação será iniciada em: http://localhost:8080
 
-Corpo da Requisição: 
+🧪 Testes
+Para rodar os testes:
 
-Um objeto Materia com os campos nome e curiosidades. 
+bash
+Copiar
+Editar
+./mvnw test
+📄 Arquivo pom.xml - Principais Dependências
+xml
+Copiar
+Editar
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.projectlombok</groupId>
+    <artifactId>lombok</artifactId>
+    <optional>true</optional>
+</dependency>
+📚 Documentação da API
+Você pode utilizar ferramentas como Postman, Insomnia, ou integrar com Swagger (basta adicionar a dependência do SpringDoc se quiser essa funcionalidade):
 
-Resposta: 
-
-Código 201 (Created): Retorna a matéria criada. 
-
-Exemplo de Corpo da Requisição:{ 
-  "nome": "Ciências", 
-  "curiosidades": ["Curiosidade 5", "Curiosidade 6"] 
-} 
-  
-
-Exemplo de Resposta:{ 
-  "id": "3", 
-  "nome": "Ciências", 
-  "curiosidades": ["Curiosidade 5", "Curiosidade 6"] 
-} 
-  
-
-4. Atualizar matéria existente 
-
-Método: PUT 
-
-Endpoint: /materias/{id} 
-
-Descrição: Atualiza uma matéria existente com base no ID fornecido. 
-
-Parâmetros: 
-
-id (string): O ID da matéria a ser atualizada. 
-
-Corpo da Requisição: 
-
-Um objeto Materia com os campos nome e curiosidades. 
-
-Resposta: 
-
-Código 200 (OK): Retorna a matéria atualizada. 
-
-Código 404 (Not Found): Se a matéria não for encontrada. 
-
-Exemplo de Corpo da Requisição:{ 
-  "nome": "Matemática Avançada", 
-  "curiosidades": ["Curiosidade 7", "Curiosidade 8"] 
-} 
-  
-
-Exemplo de Resposta:{ 
-  "id": "1", 
-  "nome": "Matemática Avançada", 
-  "curiosidades": ["Curiosidade 7", "Curiosidade 8"] 
-} 
-  
-
-5. Deletar matéria 
-
-Método: DELETE 
-
-Endpoint: /materias/{id} 
-
-Descrição: Deleta uma matéria com base no ID fornecido. 
-
-Parâmetros: 
-
-id (string): O ID da matéria a ser deletada. 
-
-Resposta: 
-
-Código 204 (No Content): Se a matéria for deletada com sucesso. 
-
-Código 404 (Not Found): Se a matéria não for encontrada. 
-
-Considerações Finais 
-
-Esta API permite a gestão de matérias e suas curiosidades de forma simples e eficiente. Através dos endpoints descritos, os usuários podem criar, ler, atualizar e deletar informações sobre matérias. A documentação pode ser acessada através do Swagger UI, que fornece uma interface interativa para testar os endpoints.
+xml
+Copiar
+Editar
+<dependency>
+    <groupId>org.springdoc</groupId>
+    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+    <version>2.5.0</version>
+</dependency>
