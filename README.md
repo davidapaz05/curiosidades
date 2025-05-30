@@ -1,165 +1,220 @@
-# 📚 Curiosities API
+# 🔍 CRUD de Curiosidades
 
-A **Curiosities API** é uma aplicação REST desenvolvida com **Spring Boot** e **MongoDB**, que permite o gerenciamento de curiosidades organizadas por categorias. Ideal para fins educacionais, projetos de aprendizado ou para integrar a sistemas que exibem fatos e curiosidades.
-
----
-
-## 🚀 Funcionalidades
-
-- 🔍 Buscar todas as curiosidades
-- 📂 Filtrar curiosidades por categoria
-- ➕ Adicionar novas curiosidades
-- ✏️ Atualizar curiosidades existentes
-- ❌ Deletar curiosidades
-- 🧠 Estrutura de dados organizada por categoria
+Um sistema completo de gerenciamento de curiosidades, com arquitetura full stack: **front-end em React-Native** e **back-end em Java (Spring Boot) com MongoDB**. Permite criar, visualizar, editar e excluir curiosidades categorizadas em temas como **Mistério, História, Tecnologia, Comida e Animais**.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 📚 Sumário
 
-### Backend
 
-- **Java 17**
-- **Spring Boot 3.4.5**
-- **MongoDB**
-- **Spring Data MongoDB**
-- **Lombok**
-- **Docker Compose** (opcional)
-- **JUnit 5** para testes
-
----
-
-## 🧩 Estrutura do Projeto
-
-src/
-├── controller/
-│ └── CuriosidadeController.java
-├── model/
-│ ├── Curiosidade.java
-│ └── Categoria.java
-├── repository/
-│ └── CuriosidadeRepository.java
-├── CuriositiesApplication.java
-└── test/
-└── CuriositiesApplicationTests.java
-
-yaml
-Copiar
-Editar
+- [Funcionalidades Detalhadas](#funcionalidades-detalhadas)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Guia de Instalação (Passo a Passo)](#guia-de-instalação-passo-a-passo)
+- [Como Usar](#como-usar)
+- [Configuração de Ambiente](#configuração-de-ambiente)
+- [Principais Endpoints da API](#principais-endpoints-da-api)
+- [Fluxo de Desenvolvimento & Contribuição](#fluxo-de-desenvolvimento--contribuição)
+- [Licença](#licença)
+- [Contato](#contato)
 
 ---
 
-## 🌐 Endpoints da API
+## Sobre o Projeto
 
-> Base URL: `http://localhost:8080/curiosidades`
+O **CRUD de Curiosidades** foi desenvolvido para registrar e compartilhar informações interessantes de diferentes temas. Ideal para quem gosta de explorar fatos curiosos sobre o mundo.
 
-### 🔹 GET `/curiosidades`
-Retorna todas as curiosidades cadastradas.
+- **Front-end React-Native (Expo)**: Interface interativa e amigável para exibir e gerenciar as curiosidades.
+- **Back-end Java (Spring Boot) + MongoDB**: API robusta para persistência, categorização e manipulação dos dados.
 
-### 🔹 GET `/curiosidades/categoria/{categoria}`
-Filtra curiosidades por categoria (ex: HISTORIA, CIENCIA, etc).
+---
 
-### 🔹 POST `/curiosidades`
-Cria uma nova curiosidade.
+## Arquitetura & Estrutura de Pastas
 
-**Exemplo de Corpo:**
-```json
-{
-  "texto": "A água ferve a 100°C ao nível do mar.",
-  "categoria": "CIENCIA"
-}
-🔹 PUT /curiosidades/{id}
-Atualiza o texto e categoria de uma curiosidade.
+```text
+Crud-Curiosidades/
+│
+├── backend/                         # API RESTful (Java, Spring Boot, MongoDB)
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/seuprojeto/ # Código Java (controllers, models, services, repositories)
+│   │   │   └── resources/           # Configurações (application.properties, etc)
+│   ├── pom.xml                      # Dependências Maven
+│   └── .env.example                 # Exemplo de variáveis de ambiente
+│
+├── frontend/                        # App React-Native (Expo)
+│   ├── .expo/                       # Configurações do Expo
+│   ├── assets/                      # Imagens, ícones, fontes
+│   ├── screens/                     # Telas do app
+│   │   ├── AdicionarCuriosidade.js
+│   │   ├── Animal.js
+│   │   ├── Comida.js
+│   │   ├── Historia.js
+│   │   ├── Home.js
+│   │   ├── ListaCuriosidades.js
+│   │   ├── Misterio.js
+│   │   └── Tecnologia.js
+│   ├── api.js                       # Serviço Axios (conexão com API)
+│   ├── App.js                       # Arquivo principal do app
+│   ├── app.json                      # Configurações do Expo
+│   ├── package.json                  # Dependências
+│   └── .gitignore                    # Arquivo de exclusões do Git
+│
+├── README.md                         # Documentação do projeto
+└── LICENSE                            # Licença
+Funcionalidades Detalhadas
+````
+Front-end
+📄 Exibir curiosidades separadas por categoria:
 
-Exemplo de Corpo:
+Mistério
 
-json
-Copiar
-Editar
-{
-  "texto": "A água pode ferver a temperaturas menores em altitudes elevadas.",
-  "categoria": "CIENCIA"
-}
-🔹 DELETE /curiosidades/{id}
-Remove uma curiosidade pelo ID.
+História
 
-🧠 Modelo de Dados
-java
-Copiar
-Editar
-@Document(collection = "curiosidades")
-public class Curiosidade {
-    @Id
-    private String id;
-    private String texto;
-    private Categoria categoria;
-}
-Enum Categoria (Exemplo)
-java
-Copiar
-Editar
-public enum Categoria {
-    HISTORIA,
-    CIENCIA,
-    GEOGRAFIA,
-    TECNOLOGIA
-}
-⚙️ Como Executar Localmente
-Clone o repositório
+Tecnologia
 
+Comida
+
+Animais
+
+🔍 Visualizar detalhes das curiosidades.
+
+➕ Adicionar novas curiosidades (título, descrição, categoria e imagem).
+
+📝 Editar curiosidades existentes.
+
+❌ Excluir curiosidades.
+
+🔗 Integração total com a API back-end.
+
+🎨 Interface mobile limpa e intuitiva.
+
+Back-end
+🔗 API RESTful estruturada em MVC.
+
+🗄️ Banco de dados MongoDB.
+
+🔐 Endpoints protegidos e validados.
+
+☁️ Upload e armazenamento de imagens.
+
+📦 Gerenciamento de dados das curiosidades (CRUD completo).
+
+⚙️ Configuração flexível via application.properties ou .env.
+
+Tecnologias Utilizadas
+Front-end
+React-Native + Expo
+
+JavaScript (ES6+)
+
+Axios
+
+React Navigation
+
+Styled Components (ou CSS-in-JS)
+
+Back-end
+Java
+
+Spring Boot
+
+MongoDB
+
+Spring Data MongoDB
+
+Spring Web
+
+Spring Multipart (upload de imagens)
+```text
+Guia de Instalação (Passo a Passo)
+1️⃣ Clone o repositório
 bash
 Copiar
 Editar
-git clone https://github.com/seu-usuario/curiosities-api.git
-cd curiosities-api
-Inicie o MongoDB
-
-Você pode usar Docker ou ter o MongoDB instalado localmente.
-
+git clone https://github.com/SeuUsuario/Crud-Curiosidades.git
+cd Crud-Curiosidades
+```
+```text
+2️⃣ Configurando o Back-end
 bash
 Copiar
 Editar
-docker run -d -p 27017:27017 --name mongo mongo
-Execute a aplicação
-
-bash
-Copiar
-Editar
+cd backend
 ./mvnw spring-boot:run
-A aplicação será iniciada em: http://localhost:8080
+Exemplo de application.properties:
 
-🧪 Testes
-Para rodar os testes:
+properties
+Copiar
+Editar
+spring.data.mongodb.uri=mongodb://localhost:27017/crud_curiosidades
+server.port=8080
+```
 
+```text
+3️⃣ Configurando o Front-end
 bash
 Copiar
 Editar
-./mvnw test
-📄 Arquivo pom.xml - Principais Dependências
-xml
-Copiar
-Editar
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-mongodb</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.projectlombok</groupId>
-    <artifactId>lombok</artifactId>
-    <optional>true</optional>
-</dependency>
-📚 Documentação da API
-Você pode utilizar ferramentas como Postman, Insomnia, ou integrar com Swagger (basta adicionar a dependência do SpringDoc se quiser essa funcionalidade):
+cd frontend
+npm install
+npx expo start
+⚙️ Configure a API no arquivo api.js:
 
-xml
+javascript
 Copiar
 Editar
-<dependency>
-    <groupId>org.springdoc</groupId>
-    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-    <version>2.5.0</version>
-</dependency>
+const api = axios.create({
+  baseURL: 'http://localhost:8080',
+});
+```
+Como Usar
+Abra o app no Expo Go ou emulador.
+
+Navegue pelas categorias na tela inicial.
+
+Visualize as curiosidades cadastradas.
+
+Utilize a tela de adicionar para inserir novas curiosidades.
+
+Edite ou exclua curiosidades quando necessário.
+
+Configuração de Ambiente
+O arquivo .env.example e application.properties.example servem como modelo.
+
+Configure a URL da API e as credenciais do banco MongoDB local ou MongoDB Atlas.
+
+Principais Endpoints da API
+GET /curiosidades – Lista todas as curiosidades
+
+GET /curiosidades/{id} – Retorna uma curiosidade específica
+
+POST /curiosidades – Cria uma nova curiosidade
+
+PUT /curiosidades/{id} – Atualiza uma curiosidade
+
+DELETE /curiosidades/{id} – Remove uma curiosidade
+
+Fluxo de Desenvolvimento & Contribuição
+Faça um fork deste repositório.
+
+Crie uma branch (git checkout -b feature/SuaFeature).
+
+Faça commit das suas alterações (git commit -m 'Feature: SuaFeature').
+
+Push para sua branch (git push origin feature/SuaFeature).
+
+Abra um Pull Request.
+
+Licença
+Distribuído sob licença MIT. Veja mais em LICENSE.
+
+```text
+Contato
+Mauricio - mauriciosfm1@gmail.com
+
+Davi da paz – davipaz125@gmail.com
+
+Yasmin - yasmenezees138@gmail.com
+
+Miguel Fernandes - miguelfc1912@gmail.com
+```
