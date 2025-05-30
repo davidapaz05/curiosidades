@@ -1,70 +1,41 @@
-# 🔍 CRUD de Curiosidades
+🔍 CRUD de Curiosidades
+Sistema completo de gerenciamento de curiosidades, desenvolvido com uma arquitetura full stack:
+📱 Front-end em React Native (Expo)
+🛠️ Back-end em Java (Spring Boot) com MongoDB
 
-Um sistema completo de gerenciamento de curiosidades, com arquitetura full stack: **front-end em React-Native** e **back-end em Java (Spring Boot) com MongoDB**. Permite criar, visualizar, editar e excluir curiosidades categorizadas em temas como **Mistério, História, Tecnologia, Comida e Animais**.
+Permite criar, visualizar, editar e excluir curiosidades organizadas por categorias:
 
----
+Mistério, História, Tecnologia, Comida e Animais.
 
-## 📚 Sumário
+📚 Sumário
+📌 Sobre o Projeto
 
+✨ Funcionalidades
 
-- [Funcionalidades Detalhadas](#funcionalidades-detalhadas)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Guia de Instalação (Passo a Passo)](#guia-de-instalação-passo-a-passo)
-- [Como Usar](#como-usar)
-- [Configuração de Ambiente](#configuração-de-ambiente)
-- [Principais Endpoints da API](#principais-endpoints-da-api)
-- [Fluxo de Desenvolvimento & Contribuição](#fluxo-de-desenvolvimento--contribuição)
-- [Licença](#licença)
-- [Contato](#contato)
+🧰 Tecnologias Utilizadas
 
----
+📁 Estrutura de Pastas
 
-## Sobre o Projeto
+🚀 Guia de Instalação
 
-O **CRUD de Curiosidades** foi desenvolvido para registrar e compartilhar informações interessantes de diferentes temas. Ideal para quem gosta de explorar fatos curiosos sobre o mundo.
+📱 Como Usar
 
-- **Front-end React-Native (Expo)**: Interface interativa e amigável para exibir e gerenciar as curiosidades.
-- **Back-end Java (Spring Boot) + MongoDB**: API robusta para persistência, categorização e manipulação dos dados.
+⚙️ Configuração de Ambiente
 
----
+🔗 Endpoints da API
 
-## Arquitetura & Estrutura de Pastas
+📈 Contribuindo
 
-```text
-Crud-Curiosidades/
-│
-├── backend/                         # API RESTful (Java, Spring Boot, MongoDB)
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/seuprojeto/ # Código Java (controllers, models, services, repositories)
-│   │   │   └── resources/           # Configurações (application.properties, etc)
-│   ├── pom.xml                      # Dependências Maven
-│   └── .env.example                 # Exemplo de variáveis de ambiente
-│
-├── frontend/                        # App React-Native (Expo)
-│   ├── .expo/                       # Configurações do Expo
-│   ├── assets/                      # Imagens, ícones, fontes
-│   ├── screens/                     # Telas do app
-│   │   ├── AdicionarCuriosidade.js
-│   │   ├── Animal.js
-│   │   ├── Comida.js
-│   │   ├── Historia.js
-│   │   ├── Home.js
-│   │   ├── ListaCuriosidades.js
-│   │   ├── Misterio.js
-│   │   └── Tecnologia.js
-│   ├── api.js                       # Serviço Axios (conexão com API)
-│   ├── App.js                       # Arquivo principal do app
-│   ├── app.json                      # Configurações do Expo
-│   ├── package.json                  # Dependências
-│   └── .gitignore                    # Arquivo de exclusões do Git
-│
-├── README.md                         # Documentação do projeto
-└── LICENSE                            # Licença
-Funcionalidades Detalhadas
-````
-Front-end
-📄 Exibir curiosidades separadas por categoria:
+📝 Licença
+
+📬 Contato
+
+📌 Sobre o Projeto
+Este projeto tem como objetivo registrar e compartilhar curiosidades interessantes sobre diferentes temas do mundo. Ideal para quem gosta de explorar fatos curiosos organizados de forma prática e visualmente atrativa.
+
+✨ Funcionalidades
+📱 Front-end
+Exibição de curiosidades separadas por categoria:
 
 Mistério
 
@@ -76,67 +47,91 @@ Comida
 
 Animais
 
-🔍 Visualizar detalhes das curiosidades.
+🔍 Visualização de detalhes das curiosidades
 
-➕ Adicionar novas curiosidades (título, descrição, categoria e imagem).
+➕ Adição de novas curiosidades (título, descrição, categoria e imagem)
 
-📝 Editar curiosidades existentes.
+📝 Edição de curiosidades existentes
 
-❌ Excluir curiosidades.
+❌ Exclusão de curiosidades
 
-🔗 Integração total com a API back-end.
+🔗 Integração completa com a API
 
-🎨 Interface mobile limpa e intuitiva.
+🎨 Interface mobile intuitiva e moderna
 
-Back-end
-🔗 API RESTful estruturada em MVC.
+🔗 Back-end
+API RESTful com arquitetura MVC
 
-🗄️ Banco de dados MongoDB.
+Banco de dados MongoDB
 
-🔐 Endpoints protegidos e validados.
+Endpoints protegidos e validados
 
-<img src="https://i.imgur.com/Eim2EQO.png" alt="Tela inicial do app" width="200">
+CRUD completo das curiosidades
 
+Upload de imagens
 
-📦 Gerenciamento de dados das curiosidades (CRUD completo).
+Configuração flexível por application.properties ou .env
 
-⚙️ Configuração flexível via application.properties ou .env.
-
-Tecnologias Utilizadas
-Front-end
-React-Native + Expo
-
+🧰 Tecnologias Utilizadas
+Front-end (React Native + Expo)
 JavaScript (ES6+)
-
-Axios
 
 React Navigation
 
-Styled Components (ou CSS-in-JS)
+Axios
 
-Back-end
-Java
+Styled Components (CSS-in-JS)
 
-Spring Boot
-
-MongoDB
+Back-end (Java + Spring Boot)
+Spring Web
 
 Spring Data MongoDB
 
-Spring Web
+MongoDB
 
-Spring Multipart (upload de imagens)
-```text
-Guia de Instalação (Passo a Passo)
-1️⃣ Clone o repositório
+Spring Multipart (upload)
+
+📁 Estrutura de Pastas
+bash
+Copiar
+Editar
+Crud-Curiosidades/
+│
+├── backend/                        # API RESTful
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/com/seuprojeto/  # Código Java
+│   │   │   └── resources/            # application.properties
+│   ├── pom.xml                      # Dependências Maven
+│   └── .env.example                 # Variáveis de ambiente (exemplo)
+│
+├── frontend/                       # App React Native (Expo)
+│   ├── .expo/                      # Configurações do Expo
+│   ├── assets/                     # Imagens e ícones
+│   ├── screens/                    # Telas do app
+│   │   ├── Home.js
+│   │   ├── ListaCuriosidades.js
+│   │   ├── AdicionarCuriosidade.js
+│   │   ├── Historia.js
+│   │   ├── Misterio.js
+│   │   ├── Comida.js
+│   │   ├── Tecnologia.js
+│   │   └── Animal.js
+│   ├── api.js                      # Axios configurado
+│   ├── App.js                      # Componente principal
+│   ├── app.json                    # Configuração Expo
+│   └── package.json                # Dependências
+│
+├── README.md                       # Este arquivo
+└── LICENSE                         # Licença MIT
+🚀 Guia de Instalação
+1️⃣ Clone o repositório:
 bash
 Copiar
 Editar
 git clone https://github.com/SeuUsuario/Crud-Curiosidades.git
 cd Crud-Curiosidades
-```
-```text
-2️⃣ Configurando o Back-end
+2️⃣ Configuração do Back-end
 bash
 Copiar
 Editar
@@ -149,17 +144,14 @@ Copiar
 Editar
 spring.data.mongodb.uri=mongodb://localhost:27017/crud_curiosidades
 server.port=8080
-```
-
-```text
-3️⃣ Configurando o Front-end
+3️⃣ Configuração do Front-end
 bash
 Copiar
 Editar
 cd frontend
 npm install
 npx expo start
-⚙️ Configure a API no arquivo api.js:
+Configure a base URL da API em api.js:
 
 javascript
 Copiar
@@ -167,47 +159,65 @@ Editar
 const api = axios.create({
   baseURL: 'http://localhost:8080',
 });
-```
-Como Usar
-Abra o app no Expo Go ou emulador.
+📱 Como Usar
+Abra o app no Expo Go (ou emulador)
 
-Navegue pelas categorias na tela inicial.
+Navegue pelas categorias
 
-Visualize as curiosidades cadastradas.
+Visualize as curiosidades
 
-Utilize a tela de adicionar para inserir novas curiosidades.
+Adicione, edite ou exclua informações com facilidade
 
-Edite ou exclua curiosidades quando necessário.
+⚙️ Configuração de Ambiente
+Use os arquivos .env.example e application.properties.example como modelo.
 
-Configuração de Ambiente
-O arquivo .env.example e application.properties.example servem como modelo.
+Configure:
 
-Configure a URL da API e as credenciais do banco MongoDB local ou MongoDB Atlas.
+URL da API
 
-Principais Endpoints da API
-GET /curiosidades – Lista todas as curiosidades
+URI do MongoDB local ou Atlas
 
-GET /curiosidades/{id} – Retorna uma curiosidade específica
+Outras variáveis de ambiente necessárias
 
-POST /curiosidades – Cria uma nova curiosidade
+🔗 Endpoints da API
+Método	Rota	Descrição
+GET	/curiosidades	Lista todas as curiosidades
+GET	/curiosidades/{id}	Retorna uma curiosidade específica
+POST	/curiosidades	Cria uma nova curiosidade
+PUT	/curiosidades/{id}	Atualiza uma curiosidade
+DELETE	/curiosidades/{id}	Remove uma curiosidade
 
-PUT /curiosidades/{id} – Atualiza uma curiosidade
+📈 Contribuindo
+Faça um fork do projeto
 
-DELETE /curiosidades/{id} – Remove uma curiosidade
+Crie sua branch: git checkout -b feature/SuaFeature
 
-Fluxo de Desenvolvimento & Contribuição
-Faça um fork deste repositório.
+Commit: git commit -m 'Feature: SuaFeature'
 
-Crie uma branch (git checkout -b feature/SuaFeature).
+Push: git push origin feature/SuaFeature
 
-Faça commit das suas alterações (git commit -m 'Feature: SuaFeature').
+Abra um Pull Request 🚀
 
-Push para sua branch (git push origin feature/SuaFeature).
+📝 Licença
+Distribuído sob a licença MIT.
+Consulte o arquivo LICENSE para mais detalhes.
 
-Abra um Pull Request.
+📬 Contato
+Desenvolvedores responsáveis:
 
-Licença
-Distribuído sob licença MIT. Veja mais em LICENSE.
+Mauricio – mauriciosfm1@gmail.com
+
+Davi da Paz – davipaz125@gmail.com
+
+Yasmin – yasmenezees138@gmail.com
+
+Miguel Fernandes – miguelfc1912@gmail.com
+
+
+
+<img src="https://i.imgur.com/Eim2EQO.png" alt="Tela inicial do app" width="200">
+
+
 
 ```text
 Contato
