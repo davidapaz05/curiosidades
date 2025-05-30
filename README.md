@@ -98,7 +98,10 @@ Back-end
 ☁️ Upload e armazenamento de imagens.
 
 
-https://imgur.com/a/XlznwWY
+## Imagem do Projeto
+
+![Screenshot do App](https://i.imgur.com/abc123.png)
+
 
 📦 Gerenciamento de dados das curiosidades (CRUD completo).
 
