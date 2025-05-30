@@ -95,11 +95,7 @@ Back-end
 
 🔐 Endpoints protegidos e validados.
 
-☁️ Upload e armazenamento de imagens.
-
-
-<img src="https://i.imgur.com/Eim2EQO.png" alt="Tela inicial do app" width="500">
-
+<img src="https://i.imgur.com/Eim2EQO.png" alt="Tela inicial do app" width="200">
 
 
 📦 Gerenciamento de dados das curiosidades (CRUD completo).
